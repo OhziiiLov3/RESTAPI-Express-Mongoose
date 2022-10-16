@@ -31,12 +31,29 @@ router.post('/',  async (req, res) => {
 });
 // Updating One
 
-router.patch('/:id', (req, res) => {
+router.patch("/:id", getSubscriber, async (req, res) => {
+    if(req.body.name != null){
+        res.subscriber.name = req.body.name;
+    }
 
+    if(req.body.subscriberToChannel != null){
+        res.subscriber.subscriberToChannel = req.body.subscriberToChannel;
+    }
+    try {
+        const updatedSubscriber = await res.subscriber.save();
+        res.json(updatedSubscriber)
+    } catch (error) {
+        res.status(400).json({message: error.message})
+    }
 });
 // Deleting One 
-router.delete('/:id', (req, res) => {
-    
+router.delete("/:id", getSubscriber, async (req, res) => {
+    try {
+        await res.subscriber.remove()
+        res.json({message: 'Deleted Subscriber'})
+    } catch (error) {
+        res.status(500).json({message: error})
+    }
 });
 
 

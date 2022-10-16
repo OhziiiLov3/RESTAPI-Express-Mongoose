@@ -2,7 +2,7 @@ GET http://localhost:3000/subscribers/
 
 ###
 
-GET http://localhost:3000/subscribers/634b44fa7f92fb77a0efe91a
+GET http://localhost:3000/subscribers/634b4ed36c324fa9a6cc6a36
 
 ###
 
@@ -13,4 +13,18 @@ Content-Type: application/json
     "name": "Amazing Dev",
     "subscriberToChannel" : "Web Dev Simplifield"
     
+}
+
+
+### 
+
+DELETE http://localhost:3000/subscribers/634b4ed36c324fa9a6cc6a36
+
+### 
+
+PATCH http://localhost:3000/subscribers/634b44fa7f92fb77a0efe91a
+Content-Type: application/json
+
+{
+    "name": "ZootyMon"
 }
