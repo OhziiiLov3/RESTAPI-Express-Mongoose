@@ -30,7 +30,6 @@ router.post('/',  async (req, res) => {
     }
 });
 // Updating One
-
 router.patch("/:id", getSubscriber, async (req, res) => {
     if(req.body.name != null){
         res.subscriber.name = req.body.name;
@@ -46,6 +45,8 @@ router.patch("/:id", getSubscriber, async (req, res) => {
         res.status(400).json({message: error.message})
     }
 });
+
+
 // Deleting One 
 router.delete("/:id", getSubscriber, async (req, res) => {
     try {
